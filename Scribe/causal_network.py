@@ -243,7 +243,7 @@ class causal_model(object):
                     for i in range(L):
                         id3 = top_incoming_nodes_tmp[i]
                         delay_id3 = top_incoming_delays_tmp[i]
-                        yz = np.concatenate( ( self.expression.loc[id3].dropna()[tau - delay_id3:tau - delay_id3 + total_length].values.reshape(-1,1), yz), axis=0)
+                        yz = np.concatenate( ( self.expression.loc[id3].dropna()[tau - delay_id3:tau - delay_id3 + total_length].values.reshape(-1,1), yz), axis=1)
                     if differential_mode == False:
                         y = [[i] for i in self.expression.loc[id2].dropna()][tau:tau + total_length]
                     elif differential_mode == True:
